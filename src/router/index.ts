@@ -4,15 +4,15 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import('../Pages/MainPage.vue'),
+    component: () => import('../Pages/MainPage/MainPage.vue'),
     meta: {
       title: "Home",
     }
   },
   {
-    path: "/Post/:postId",
+    path: "/post/:postId",
     name: "Post",
-    component: () => import('../Pages/PostPage.vue'),
+    component: () => import('../Pages/PostPage/PostPage.vue'),
     meta: {
       title: "Post",
     }
