@@ -13,7 +13,6 @@ defineProps<{
   <div class="post">
     <div class="post_item">
       <h1 class="post_title">{{ post.title }}</h1>
-      <h2 class="post_title">{{ post.body }}</h2>
     </div>
   </div>
 </template>
@@ -31,5 +30,7 @@ h2{
   border: 1px #ccc solid;
   padding: 12px;
   margin-top: 12px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px #ddd;
 }
 </style>

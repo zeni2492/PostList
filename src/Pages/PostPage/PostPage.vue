@@ -3,11 +3,12 @@ import {getOnePost} from "../../API/API.ts";
 import {onMounted,ref} from "vue";
 import type {IPost} from "../../helpers/Types.ts";
 import {useRoute,RouterLink} from "vue-router";
+import Button from "../../components/Button.vue";
 
 const post = ref<IPost | null>(null);
 const route = useRoute();
-const loading = ref(false);
-const error = ref('');
+const loading = ref<boolean>(false);
+const error = ref<string>('');
 
 onMounted(async () =>{
   try {
@@ -29,14 +30,39 @@ onMounted(async () =>{
 </script>
 
 <template>
-<h1><RouterLink :to="'/'">PostPage</RouterLink></h1>
+  <div class="header_container">
+    <RouterLink :to="'/'"><Button class="header_back-button">Back to All Posts</Button></RouterLink>
+    <h1 class="header_title">PostPage</h1>
+  </div>
   <div v-if="loading"></div>
-  <div  v-if="post">
-    <h1>{{post.title}}</h1>
-    <h2>{{post.body}}</h2>
+  <div  v-if="post" class="Post_container">
+    <h1 class="Post_Title">{{post.title}}</h1>
+    <h2 class="Post_body">{{post.body}}</h2>
   </div>
 </template>
 
 <style scoped>
 
+.header_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 54%;
+}
+
+.header_back-button{
+  display: flex;
+  white-space: nowrap;
+}
+
+.Post_container{
+  padding: 0 12px;
+  text-align: center;
+}
+
+.Post_Title{
+  border-bottom: 1px solid #E67E22;
+  padding-bottom: 8px;
+}
 </style>

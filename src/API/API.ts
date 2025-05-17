@@ -6,7 +6,6 @@ interface IPost {
   body: string;
   userId: number;
 }
-
 export const getAllPosts = async (): Promise<IPost[]> => {
   try {
     const response = await AxiosApi.get('/posts');
@@ -16,7 +15,6 @@ export const getAllPosts = async (): Promise<IPost[]> => {
     throw error;
   }
 };
-
 export const getOnePost = async (id: number | string): Promise<IPost> => {
   try {
     const response = await AxiosApi.get(`/posts/${id}`);
